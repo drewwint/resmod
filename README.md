@@ -23,7 +23,7 @@ pip install .
 
 ```
 
-#### pypi (coming soon)
+#### pypi
 
 ```
 
