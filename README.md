@@ -7,29 +7,32 @@ This approach is based on the work of Todd Little.
 See the citation: Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., & Crandall, C. S. (2007). Structural equation modeling of mediation and moderation with contextual factors. Modeling contextual effects in longitudinal studies, 1, 207-230.
 
 ### Features
-- Extract an orthogonalized interaction term from two manifest variables by centering the residuals of the specified two-way interaction.
+Calculate
+- Two-way orthogonalized interaction that can be use in any regression-based model *residual_center*
+- Three-way orthogonalized interaction that can be used in any regression-based model *three_center*
+- Multiple orthogonalized interactions from a list of variables in a dataframe to be used in latent SEM modeling *orthogonalize*
+
 
 ### Installation
-#### git
-1. clone the git repository using https
-2. change directory into the cloned repository cd ~/resmod
-3. pip install .
 
 ```
-
+# git
 git clone hssps://gitbub.com/drewwint/resmod.git
 cd resmod
 pip install . 
 
 ```
 
-#### pypi
-
 ```
-
+# PyPi
 pip install resmod
 
 ```
+
+### Dependencies
+- [NumPy](https://www.numpy.org)
+- [pandas](https://pandas.pydata.org)
+- [statsmodels](https://www.statsmodels.org)
 
 ### Usage 
 
@@ -68,7 +71,9 @@ pip install resmod
     #        115.6538024,    194.02207051,   612.22286945,  -485.36288933,  98.28416593]
     #        )
 
-
-
 ```
+
+### Contributing to resmod
+
+All contributions, bug reports, bug fixes, documentation improvements, enhancements, and ideas are welcome.
 
