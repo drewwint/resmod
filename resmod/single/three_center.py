@@ -46,7 +46,6 @@ def three_center(v1, v2, v3):
     Examples
     --------
     Packages
-        from resmod.single import residual_center
         import statsmodels.formula.api as smf
         import statsmodels as smf
         from statsmodels import datasets
