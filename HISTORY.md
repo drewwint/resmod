@@ -21,3 +21,7 @@ Added functions for three-way interactions and multiple two-way interactions for
 * for single three-way interaction term *three_way*
 * for multiple interactions for latent variable modeling *orthogonalize*
 
+0.1.3 (2022-09-20)
+------------------
+Updated documentation
+
