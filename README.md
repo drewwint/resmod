@@ -17,7 +17,7 @@ Calculate
 
 ```
 # git
-git clone hssps://gitbub.com/drewwint/resmod.git
+git clone https://github.com/drewwint/resmod.git
 cd resmod
 pip install . 
 
