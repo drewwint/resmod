@@ -9,11 +9,9 @@ See the citation: Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., &
 ### Functions
 - **residual_center** 
 	- Two-way orthogonalized interaction that can be use in any regression-based model
-
-- **three_center()** 
+- **three_center** 
 	- Three-way orthogonalized interaction that can be used in any regression-based model
-
-- **orthogonalize()** 
+- **orthogonalize** 
 	- Multiple orthogonalized interactions to be used in latent SEM interaction modeling
 
 
