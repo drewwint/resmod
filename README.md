@@ -7,14 +7,14 @@ This approach is based on the work of Todd Little.
 See the citation: Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., & Crandall, C. S. (2007). Structural equation modeling of mediation and moderation with contextual factors. Modeling contextual effects in longitudinal studies, 1, 207-230.
 
 ### Functions
-**residual_center()** 
-- Two-way orthogonalized interaction that can be use in any regression-based model
+- **residual_center** 
+	- Two-way orthogonalized interaction that can be use in any regression-based model
 
-**three_center()** 
-- Three-way orthogonalized interaction that can be used in any regression-based model
+- **three_center()** 
+	- Three-way orthogonalized interaction that can be used in any regression-based model
 
-**orthogonalize()** 
-- Multiple orthogonalized interactions to be used in latent SEM interaction modeling
+- **orthogonalize()** 
+	- Multiple orthogonalized interactions to be used in latent SEM interaction modeling
 
 
 ### Installation
