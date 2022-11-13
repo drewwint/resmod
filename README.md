@@ -118,7 +118,7 @@ pip install resmod
 
 ### Comparative testing
 In addition to each functions testing files, we replicated results from functions in r packages including:
-- [rockchall](https://cran.r-project.org/web/packages/rockchalk/rockchalk.pdf)
+- [rockchalk](https://cran.r-project.org/web/packages/rockchalk/rockchalk.pdf)
 - [semTools](https://cran.r-project.org/web/packages/semTools/semTools.pdf)
 
 ### Contributing to resmod
