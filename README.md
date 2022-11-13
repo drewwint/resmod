@@ -1,16 +1,15 @@
 # resmod: a package for creating orthogonalized interaction terms by centering residuals
 
 ## What is resmod? 
-**resmod** is a Python package that provides the ability to quickly create orthogonalized interaction terms by centering residuals. This approach to testing interaction prevents the user from violating basic assumptions of regression -- specificaly that there should be no correlated residuals. This allows a fast and easy way to orthogonalize interaction terms without violating regression based model assumptions. Also, because the interaction term is orthogonalized from the model, you are able to interpret both direct effects and interaction terms in the same model. Not only is this convienient but it reduces the number of test run on your data. 
+**resmod** is a Python package that provides the ability to quickly create orthogonalized interaction terms by centering residuals. This approach to testing interaction prevents the user from violating basic assumptions of regression -- specificaly that there should be no correlated residuals. Because the interaction term is orthogonalized from the model, you are able to interpret both direct effects and interaction terms in the same model. Not only is this convienient but it reduces the number of test run on your data. 
 
 This approach is based on the work of Todd Little. 
 See the citation: Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., & Crandall, C. S. (2007). Structural equation modeling of mediation and moderation with contextual factors. Modeling contextual effects in longitudinal studies, 1, 207-230.
 
-### Features
-Calculate
-- Two-way orthogonalized interaction that can be use in any regression-based model *residual_center*
-- Three-way orthogonalized interaction that can be used in any regression-based model *three_center*
-- Multiple orthogonalized interactions from a list of variables in a dataframe to be used in latent SEM modeling *orthogonalize*
+### Functions
+- **residual_center**: Two-way orthogonalized interaction that can be use in any regression-based model
+- **three_center**: Three-way orthogonalized interaction that can be used in any regression-based model
+- **orthogonalize**: Multiple orthogonalized interactions from two lists of variables to be used in latent SEM modeling
 
 
 ### Installation
@@ -37,7 +36,7 @@ pip install resmod
 ### Usage 
 
 ```
-# Orthogonalizing interaction between income and education from ducan data
+# residual_center: Orthogonalizing single interaction between income and education from ducan data
   ## Packages
     from resmod.single import residual_center         # for orthogonalizing using centered residuals
     import statsmodels.formula.api as smf             # for estimation 
@@ -70,8 +69,57 @@ pip install resmod
     #        248.37917402,   182.34841689,   117.02343887,   679.23266571,  360.97604371,
     #        115.6538024,    194.02207051,   612.22286945,  -485.36288933,  98.28416593]
     #        )
+```
 
 ```
+# orthogonalize: Orthogonalizing two list of variables from Duncan data
+   ### Output could be used for multiple orthogonalized interactions or
+   ### to create interactions of all observed variables to be used in a latent interaction
+
+ ## Packages
+      from resmod.sem import orthogonalize
+      import statsmodels.formula.api as smf
+      import statsmodels as sms
+      from statsmodels import datasets
+      import numpy as np
+      import pandas as pd
+
+ ## Getting data
+      duncan_prestige = sms.datasets.get_rdataset("Duncan", "carData")
+      income = duncan_prestige.data.income
+      education = duncan_prestige.data.education
+
+ ## Creating dataframe
+      income = np.array(duncan_prestige.data.income)
+      education = np.array(duncan_prestige.data.education)
+      prestige = np.array(duncan_prestige.data.prestige)
+      dat = pd.DataFrame({"income": income, "education": education, "prestige": prestige})
+
+ ## Creating lists of column names for interactions 
+    ## You could include any number variables in each list for your purposes 
+      l1 = ["income"]
+      l2 = ["education", "prestige"]
+
+
+ ## Estimation
+      r = orthogonalize(l1, l2, dat)
+      r.head()
+
+ ## Returns 
+   # Dataframe
+   #     income.education  income.prestige
+   #  0         63.112648        34.246807
+   #  1        229.849185       399.315757
+   #  2        741.282854       732.789351
+   #  3       -191.615460      -277.473163
+   #  4        143.134978       276.041595
+
+```
+
+### Comparative testing
+In addition to each functions testing files, we replicated results from functions in r packages including:
+- [rockchall](https://cran.r-project.org/web/packages/rockchalk/rockchalk.pdf)
+- [semTools](https://cran.r-project.org/web/packages/semTools/semTools.pdf)
 
 ### Contributing to resmod
 
