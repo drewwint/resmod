@@ -39,9 +39,9 @@ pip install resmod
 ### Usage 
 
 ```
-# residual_center: Orthogonalizing single interaction between income and education from ducan data
+# residual_center: Orthogonalizing single two-way interaction from Ducan data
   ## Packages
-    from resmod.single import residual_center         # for orthogonalizing using centered residuals
+    from resmod.single import residual_center         # for orthogonalizing 
     import statsmodels.formula.api as smf             # for estimation 
     import statsmodels as sms             
     from statsmodels import datasets                  # for importing data
