@@ -1,4 +1,7 @@
 #!/usr/bin/python3
 
-from . import single
+__all__ = ["single", "sem", "plot"]
 
+from . import single
+from . import sem
+from . import plotting

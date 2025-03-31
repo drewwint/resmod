@@ -80,9 +80,15 @@ def residual_center(v1, v2):
                  98.28416593]
                  )
     """
-    import statsmodels.formula.api as smf
-    import numpy as np
-    import pandas as pd
+    # Required packages import checking
+    try:
+        import numpy as np
+        import pandas as pd
+        import statsmodels.formula.api as smf
+    except ImportError as e:
+        raise ImportError(f"Missing required package: {e.name}. Install it using `pip install {e.name}`")
+    
+    # Deriving residual centered interaction term
     mod = np.array(v1 * v2)
     v11 = np.array(v1)
     v22 = np.array(v2)
@@ -90,3 +96,5 @@ def residual_center(v1, v2):
     res_cent = np.array(smf.ols(formula="mod ~ v1 + v2",
                                 data=data).fit().resid)
     return(res_cent)
+
+

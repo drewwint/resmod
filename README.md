@@ -1,10 +1,28 @@
-# resmod: a package for creating orthogonalized interaction terms by centering residuals
+# resmod: a package for creating orthogonalized interaction terms by centering residuals and visualizing interactions
+
+## Overview
+**resmod** is a Python package to assist with deriving interactions and visualizing interactions. For deriving interactions - this package uses residual centering to orthogonalize the interaction from the items used to derive the interaction. Where traditional interaction approaches induce residual dependence that violate assumptions of regression and requires the user to estimate a model with and without the interaction, the approach taken with 'resmod' is an interaction term that does not violate assumptions of regression based approaches (no residual dependence). 
+
+Why would you want to orthogonalize your interaction term by residual centering? Beyond retaining data properties that fit the assumptions of your analytic approach, this improves the ease of analysis as well as providing proper context to analyses that are preregistered. 
+
+An example - you preregister an interaction that has strong theoretical support,  you run your analysis and find your interaction is statistically meaninful! Now it is time to interpret - a traditional approach would guide the analyst to forget about the direct estimates and only interpret the interaction... the problem is those direct effects are what guided you to your research question and proposing the interaction in the first place. 'resmod' allows you to leave your interaction term in your model, show your hypothesis test for the interaction, while also connecting to the literature in your field by being able to interpret direct effects. It would be critical to not only intprepret the interaction but also direct effects that has substantially more literautre support inorder to contextualize your results. 
+
+A second example - your preregistered interaction is not statitically menaingful. A traditional approach would guide you to remove the interaction and move forward with interpreting direct effects... the problem with this approach is you had a strong theoretical reasoning for that interaction in the first place and to remove it would undercut the main reason for doing the analysis in the first place. 'resmod' allows you to leave that interaction term in the model so you can show your hypothesis test for the theoretically supported interaction term while interpretating direct effects to connect with the literature. 
+
+Another common problem is writing code to plot these interaction terms. 'resmod' provides basic plotting functions to visualize interactions for visual inspection or publication. 
+
+In short 'resmod' provides tools for more robust interaction analysis that are more theoretically consistent without having to run multiple models on the same outcome and knowningly introducing assumption violations.  
 
 ## What is resmod? 
-**resmod** is a Python package that provides the ability to quickly create orthogonalized interaction terms by centering residuals. This approach to testing interaction prevents the user from violating basic assumptions of regression -- specificaly that there should be no correlated residuals. Because the interaction term is orthogonalized from the model, you are able to interpret both direct effects and interaction terms in the same model. Not only is this convienient but it reduces the number of test run on your data. 
+**resmod** is a Python package that provides the ability to quickly create orthogonalized interaction terms by centering residuals. This approach to testing interaction prevents the user from violating basic assumptions of regression -- specificaly that there should be no correlated residuals. Because the interaction term is orthogonalized from the model, you are able to interpret both direct effects and interaction terms in the same model. Not only is this convienient but it reduces the number of test run on your data. **resmod** also provides functionality to visualize two-way or three-way interactions for one or two interactions. Specifically, 'resmod.plotting.interact_plot()' uses the Bauer & Curran (2005) "pick a point" procedure (+1SD, mean, -1SD) for continuous variables (or chosen point values by the user) and points relevant for categorical or dichotomous values.     
 
-This approach is based on the work of Todd Little. 
-See the citation: Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., & Crandall, C. S. (2007). Structural equation modeling of mediation and moderation with contextual factors. Modeling contextual effects in longitudinal studies, 1, 207-230.
+## Whats next?
+For the next version of **resmod** we are working on calculation of simple slopes and Johnson-Neyman intervals and related figures for these approaches. 
+
+## Citations:
+- Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., & Crandall, C. S. (2007). Structural equation modeling of mediation and moderation with contextual factors. Modeling contextual effects in longitudinal studies, 1, 207-230.
+- Bauer, D. J., & Curran, P. J. (2005). Probing interactions in fixed and multilevel regression: Inferential and graphical techniques. Multivariate behavioral research, 40(3), 373-400.
+
 
 ### Functions
 - **residual_center** 
@@ -13,7 +31,8 @@ See the citation: Little, T. D., Card, N. A., Bovaird, J. A., Preacher, K. J., &
 	- Three-way orthogonalized interaction that can be used in any regression-based model
 - **orthogonalize** 
 	- Multiple orthogonalized interactions to be used in latent SEM interaction modeling
-
+- **interact_plot**
+    - A visualization tool for plotting two-way and three-way interactions 
 
 ### Installation
 
@@ -35,6 +54,8 @@ pip install resmod
 - [NumPy](https://www.numpy.org)
 - [pandas](https://pandas.pydata.org)
 - [statsmodels](https://www.statsmodels.org)
+- [matplotlib](https://matplotlib.org/)
+- [patsy](https://patsy.readthedocs.io/en/latest/)
 
 ### Usage 
 
@@ -123,6 +144,8 @@ pip install resmod
 In addition to each functions testing files, we replicated results from functions in r packages including:
 - [rockchalk](https://cran.r-project.org/web/packages/rockchalk/rockchalk.pdf)
 - [semTools](https://cran.r-project.org/web/packages/semTools/semTools.pdf)
+- [interactions](https://doi.org/10.32614/CRAN.package.interactions)
+
 
 ### Contributing to resmod
 

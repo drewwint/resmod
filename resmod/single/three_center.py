@@ -84,9 +84,15 @@ def three_center(v1, v2, v3):
                  48967.85766974,   49204.28630066,   43525.39900971,
                  87552.05115362,  -77821.44787679,   43733.07952156])
     """
-    import statsmodels.formula.api as smf
-    import numpy as np
-    import pandas as pd
+    # Require packages import checking
+    try:
+        import numpy as np
+        import pandas as pd
+        import statsmodels.formula.api as smf
+    except ImportError as e:
+        raise ImportError(f"Missing required package: {e.name}. Install it using `pip install {e.name}`")
+
+    # Residual centering of three-way interaction term
     mod = np.array(v1 * v2 * v3)
     v11 = np.array(v1)
     v22 = np.array(v2)
@@ -94,3 +100,5 @@ def three_center(v1, v2, v3):
     data = pd.DataFrame({"mod": mod, "v1": v11, "v2" : v22, "v3" : v33})
     three_cent = np.array(smf.ols(formula = "mod ~ v1 + v2 + v3", data=data).fit().resid)
     return(three_cent)
+
+
