@@ -14,3 +14,5 @@ resmod/sem/orthogonalize.py
 resmod/single/__init__.py
 resmod/single/residual_center.py
 resmod/single/three_center.py
+resmod/slopes/__init__.py
+resmod/slopes/simple_slopes.py
