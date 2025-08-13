@@ -1,5 +1,7 @@
 # resmod: A package for deriving orthogonalized interaction terms, reporting interaction analyses, and visualization of interactions
 
+<a href="https://pepy.tech/projects/resmod"><img src="https://static.pepy.tech/badge/resmod" alt="PyPI Downloads"></a>
+
 ## Overview
 **resmod** is a Python package to assist with deriving interactions and visualizing interactions. For deriving interactions - this package uses residual centering to orthogonalize the interaction from the items used to derive the interaction. Where traditional interaction approaches induce residual dependence that violate assumptions of regression and requires the user to estimate a model with and without the interaction, the approach taken with 'resmod' is an interaction term that does not violate assumptions of regression based approaches (no residual dependence). 
 
